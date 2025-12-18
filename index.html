@@ -6,8 +6,8 @@
     
     <meta property="og:title" content="【追思】簡翊卉 夫人 雲端訃告">
     <meta property="og:description" content="感謝親友的陪伴與關懷，翊卉夫人已化作星辰，守護著她最愛的人。">
-  <link rel="icon" href="image/logo.png" type="image/png">
-   <meta property="og:image" content="https://24hour.xn--kpry57d/Jian-Yihui/image/Write.png">
+    <link rel="icon" href="image/logo.png" type="image/png">
+    <meta property="og:image" content="https://24hour.xn--kpry57d/Jian-Yihui/image/Write.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://24hour.台灣/Jian-Yihui">
@@ -34,14 +34,14 @@
         section { margin-bottom: 55px; opacity: 0; transform: translateY(35px); transition: 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* 頁首 */
-        header { text-align: center; padding: 90px 20px 50px; background: #fff; }
-        .logo { width: 45px; margin-bottom: 15px; opacity: 0.8; }
-        .main-name { font-size: clamp(34px, 11vw, 46px); font-weight: 900; color: var(--primary-brown); letter-spacing: 14px; margin: 15px 0; text-indent: 14px; }
-        .sub-date { color: #bbb; font-size: 16px; font-weight: 500; letter-spacing: 4px; }
+        /* 頁首高級字體化 */
+        header { text-align: center; padding: 110px 20px 60px; background: #fff; }
+        .logo { width: 48px; margin-bottom: 20px; opacity: 0.85; filter: sepia(0.3); }
+        .main-name { font-size: clamp(38px, 12vw, 48px); font-weight: 900; color: var(--primary-brown); letter-spacing: 16px; margin: 20px 0; text-indent: 16px; line-height: 1.2; }
+        .sub-date { color: #999; font-size: 17px; font-weight: 400; letter-spacing: 6px; }
 
         /* 分享鈕 */
-        .share-flex { display: flex; justify-content: center; gap: 35px; margin-top: 35px; }
+        .share-flex { display: flex; justify-content: center; gap: 35px; margin-top: 40px; }
         .share-btn { background: none; border: none; cursor: pointer; text-align: center; }
         .share-btn img { width: 48px; height: 48px; margin-bottom: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); }
         .share-btn span { display: block; font-size: 13px; color: #999; font-weight: 600; }
@@ -51,8 +51,8 @@
         .card-label { display: inline-block; padding: 6px 22px; border: 1px solid var(--accent-gold); border-radius: 50px; color: var(--accent-gold); font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 25px; }
 
         /* 儀程內容 */
-        .date-main { font-size: 44px; font-weight: 900; color: var(--primary-brown); text-align: center; line-height: 1; }
-        .date-week { font-size: 18px; color: var(--accent-gold); font-weight: 700; text-align: center; display: block; margin-top: 10px; }
+        .date-main { font-size: 52px; font-weight: 900; color: var(--primary-brown); text-align: center; line-height: 1; margin: 10px 0; }
+        .date-week { font-size: 18px; color: var(--accent-gold); font-weight: 700; text-align: center; display: block; margin-top: 5px; }
         .time-row { display: flex; justify-content: space-around; border-top: 1px solid #f9f6f2; border-bottom: 1px solid #f9f6f2; padding: 25px 0; margin: 25px 0; }
         .time-val { display: block; font-size: 28px; color: var(--primary-brown); font-weight: 900; }
 
@@ -95,9 +95,13 @@
 
 <header>
     <img src="image/logo.png" class="logo">
-    <div style="letter-spacing: 5px; font-weight: 700; color: var(--accent-gold); font-size: 13px;">摯愛追思</div>
+    <div style="letter-spacing: 8px; font-weight: 400; color: var(--accent-gold); font-size: 14px; opacity: 0.8;">摯 愛 追 思</div>
     <h1 class="main-name">簡翊卉 夫人</h1>
-    <div class="sub-date">1954 — 2025</div>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 10px;">
+        <div style="width: 20px; height: 1px; background: #eee;"></div>
+        <div class="sub-date">1954 — 2025</div>
+        <div style="width: 20px; height: 1px; background: #eee;"></div>
+    </div>
     
     <div class="share-flex">
         <button class="share-btn" onclick="shareToLine()"><img src="image/line.png"><span>分享</span></button>
@@ -111,7 +115,7 @@
 <main class="container">
     <section class="reveal">
         <div class="img-container"><img src="image/IMG_5803.jpg" class="img-fluid clickable"></div>
-        <p style="text-align: center; font-size: 18px; line-height: 2.2; color: #444; padding: 0 10px;">
+        <p style="text-align: center; font-size: 18px; line-height: 2.3; color: #444; padding: 0 10px;">
             我們摯愛的 <strong>簡翊卉 夫人</strong><br>
             於民國114年12月15日<br>
             在親人的陪伴中，輕輕地卸下重擔<br>
@@ -127,24 +131,34 @@
             深深地，刻在記憶的溫暖處
         </p>
     </section>
-</main>
-
 
     <section class="reveal">
         <div class="info-card">
+            <div style="text-align: center; color: #888; font-size: 15px; letter-spacing: 3px; margin-bottom: 20px; font-weight: 500;">
+                謹擇於 <span style="color: var(--primary-brown); font-weight: 700;">115</span> 年舉辦告別奠禮
+            </div>
+
             <div style="text-align: center;"><span class="card-label">奠禮儀程</span></div>
-            <div class="date-main">115.01.06</div>
+            <div class="date-main">01.06</div>
             <span class="date-week">星期二 (農曆十一月十八日)</span>
+            
             <div class="time-row">
-                <div class="time-cell"><span style="color:#aaa; font-size:14px;">家奠禮</span><span class="time-val">08:00</span></div>
+                <div class="time-cell"><span style="color:#aaa; font-size:14px;">家奠禮</span><span class="time-val">上午08:00</span></div>
                 <div style="width:1px; background:#f0ede9;"></div>
-                <div class="time-cell"><span style="color:#aaa; font-size:14px;">公奠禮</span><span class="time-val">08:40</span></div>
+                <div class="time-cell"><span style="color:#aaa; font-size:14px;">公奠禮</span><span class="time-val">上午08:40</span></div>
             </div>
-            <div style="text-align: center; margin-bottom: 10px;">
-                <span style="font-size: 22px; font-weight: 900; color: var(--accent-gold); display: block;">新北市立殯儀館 [崇仁廳]</span>
-                <span style="color: #888; font-size: 15px;">新北市板橋區中正路 560 號</span>
+
+            <div style="text-align: center; margin-bottom: 25px;">
+                <span style="font-size: 22px; font-weight: 900; color: var(--accent-gold); display: block; letter-spacing: 1px;">新北市立殯儀館 [崇仁廳]</span>
+                <span style="color: #888; font-size: 14px;">新北市板橋區中正路 560 號</span>
             </div>
-            <button class="btn btn-gold" style="background:#607d8b;" onclick="addToCalendar()">📅 加入手機行事曆提醒</button>
+
+            <div style="background: #fcfaf8; border-radius: 15px; padding: 15px; text-align: center; border: 1px dashed rgba(166,124,82,0.3);">
+                <span style="font-size: 12px; color: var(--accent-gold); display: block; letter-spacing: 2px; font-weight: 700; margin-bottom: 5px;">靈堂 / 牌位區位置</span>
+                <span style="font-size: 16px; color: var(--primary-brown); font-weight: 700; letter-spacing: 1px;">新北市立殯儀館 [思源廳] 3號牌位區</span>
+            </div>
+
+            <button class="btn btn-gold" style="background:#607d8b; margin-top: 25px;" onclick="addToCalendar()">📅 加入手機行事曆提醒</button>
         </div>
     </section>
 
@@ -156,9 +170,9 @@
     <section class="reveal">
         <div class="info-card">
             <div style="text-align: center;"><span class="card-label">交通資訊</span></div>
-            <div class="traffic-grid">
-                <div class="img-container" style="margin:0;"><img src="image/traffic_map.jpg" class="img-fluid clickable"></div>
-                <div class="img-container" style="margin:0;"><img src="image/hall_view.jpg" class="img-fluid clickable"></div>
+            <div class="traffic-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                <div class="img-container" style="margin:0;"><img src="image/板橋殯儀館平面圖.png" class="img-fluid clickable"></div>
+                <div class="img-container" style="margin:0;"><img src="祥安資訊-板殯.png" class="img-fluid clickable"></div>
             </div>
             <ul style="list-style:none; font-size:15px; color:#555;">
                 <li style="margin-bottom:10px;"><b>捷運：</b>板南線「新埔站」1號出口步行約15分鐘。</li>
@@ -188,7 +202,7 @@
 
     <section class="reveal">
         <div class="info-card" style="background: #fffcf9; border: 1px solid rgba(166,124,82,0.18);">
-            <div style="text-align: center;"><span class="card-label">家屬謝忱</span></div>
+            <div style="text-align: center;"><span class="card-label">家屬致謝</span></div>
             <div style="text-align: justify; color: #555; line-height: 2.5; font-size: 16px;">
                 感謝親友們在我們最艱難的時刻給予的溫暖關懷。您的陪伴與慰問，給予了家屬莫大的力量。翊卉在世時蒙受各位厚愛，家屬銘感於心，致上最誠摯的謝意。
             </div>
