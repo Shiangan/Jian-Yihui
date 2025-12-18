@@ -8,13 +8,13 @@
     
     <style>
         @font-face {
-            font-family: 'Zf-Font';
+            font-family: 'ZF-Font';
             src: url('/Zf-Font.ttf') format('truetype');
             font-display: swap;
         }
 
         :root {
-            --paper-bg: #f9f7f2; /* 統一淺米白絹色 */
+            --paper-bg: #f9f7f2;
             --ink: #1a1a1a;
             --gold-leaf: #b4977a;
             --sub-ink: #555555;
@@ -31,103 +31,96 @@
             margin: 0 auto;
             background-color: var(--paper-bg);
             position: relative;
-            box-shadow: 0 0 40px rgba(0,0,0,0.02);
         }
 
-        /* 呼吸感章節切換設計 */
         section { 
-            padding: 60px 25px; 
+            padding: 55px 25px; 
             position: relative;
             opacity: 0; transform: translateY(30px); 
             transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* 主題切換的小巧思：細緻的絹絲漸層線 */
+        /* 章節切換的小巧思 */
         section::after {
-            content: ""; position: absolute; bottom: 0; left: 10%; width: 80%; height: 1px;
+            content: ""; position: absolute; bottom: 0; left: 15%; width: 70%; height: 1px;
             background: linear-gradient(to right, transparent, rgba(180, 151, 122, 0.2), transparent);
         }
 
-        /* 頂部 Logo 與 聯繫資訊 */
-        .header-top { text-align: center; padding: 50px 20px 30px; }
+        /* 頂部區域 */
+        .header-top { text-align: center; padding: 50px 20px 25px; }
         .top-logo { width: 140px; margin-bottom: 15px; }
         .family-link { 
             font-size: 16px; color: var(--gold-leaf); text-decoration: none; 
-            letter-spacing: 3px; font-weight: 600; display: block;
+            letter-spacing: 4px; font-weight: 700; display: block;
         }
 
-        /* 標題姓名區 */
-        header { text-align: center; padding-bottom: 50px; }
+        /* 姓名區：絕對不跳行 */
+        header { text-align: center; padding-bottom: 45px; }
         .name-wrapper { 
-            white-space: nowrap; font-family: 'Zf-Font', serif;
-            font-size: clamp(45px, 14vw, 68px); 
-            font-weight: 900; letter-spacing: 0.2em; margin: 15px 0;
+            white-space: nowrap; font-family: 'ZF-Font', serif;
+            font-size: clamp(42px, 13vw, 65px); 
+            font-weight: 900; letter-spacing: 0.25em; margin: 12px 0;
+            display: inline-block;
         }
-        .life-dates { font-size: 15px; letter-spacing: 8px; color: var(--gold-leaf); }
+        .life-dates { font-size: 15px; letter-spacing: 8px; color: var(--gold-leaf); font-weight: 400; }
 
-        /* 資訊大卡片 */
-        .info-tag { font-size: 13px; letter-spacing: 5px; color: var(--gold-leaf); font-weight: 700; margin-bottom: 15px; display: block; }
-        .date-hero { font-family: 'ZF-Font', serif; font-size: 95px; line-height: 1; text-align: center; margin-bottom: 10px; }
+        /* 資訊區 */
+        .info-tag { font-size: 12px; letter-spacing: 5px; color: var(--gold-leaf); font-weight: 700; margin-bottom: 15px; display: block; }
+        .date-hero { font-family: 'ZF-Font', serif; font-size: 92px; line-height: 1; text-align: center; margin-bottom: 10px; }
         
-        .event-card { margin-top: 30px; padding: 25px 0; }
+        .event-card { margin-top: 25px; }
         .event-title { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
-        .event-sub { font-size: 14px; color: var(--sub-ink); margin-top: 5px; margin-bottom: 25px; }
+        .event-sub { font-size: 14px; color: var(--sub-ink); margin-top: 4px; margin-bottom: 25px; }
 
         .time-grid { display: flex; justify-content: space-around; padding-top: 25px; border-top: 1px dashed rgba(180, 151, 122, 0.3); }
-        .time-item b { font-family: 'ZF-Font', serif; font-size: 42px; color: var(--gold-leaf); }
+        .time-item b { font-family: 'ZF-Font', serif; font-size: 40px; color: var(--gold-leaf); }
         .time-item span { font-size: 11px; display: block; color: var(--sub-ink); letter-spacing: 2px; }
 
-        /* 交通導引 */
+        /* 交通導引修正 */
         .map-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
-        .map-box img { width: 100%; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .map-box img { width: 100%; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .btn-map { display: block; width: 100%; padding: 18px; background: #fff; border: 1px solid #eee; border-radius: 4px; color: var(--ink); text-align: center; text-decoration: none; font-size: 13px; margin-top: 15px; letter-spacing: 2px; }
 
-        /* 📮 致謝文：絹絲質感背景加強 */
+        /* 📮 致謝文：絹絲質感與靠上對齊 */
         .calligraphy-area {
-            background: linear-gradient(135deg, #f9f7f2 0%, #f4f1ea 100%);
-            padding: 100px 20px; text-align: center;
+            background-color: var(--paper-bg);
+            padding: 80px 25px 100px;
+            position: relative;
         }
-        .ink-wrap { display: flex; flex-direction: row-reverse; justify-content: center; height: 500px; }
+        .ink-wrap { 
+            display: flex; flex-direction: row-reverse; 
+            justify-content: center; align-items: flex-start; /* 靠上對齊 */
+            min-height: 520px; 
+        }
         .ink-line { 
             writing-mode: vertical-rl; font-family: 'ZF-Font', serif; 
             font-size: 26px; letter-spacing: 12px; line-height: 2.8; 
-            color: #111; opacity: 0; filter: blur(10px);
+            color: #1a1a1a; opacity: 0; filter: blur(12px);
         }
-        .ink-anim { animation: inkFlow 2.5s cubic-bezier(0.2, 0, 0.3, 1) forwards; }
-        @keyframes inkFlow { 
-            0% { opacity: 0; filter: blur(15px); transform: scale(1.02); }
-            100% { opacity: 1; filter: blur(0); transform: scale(1); }
+        .ink-anim { animation: inkFadeInTop 2.8s cubic-bezier(0.2, 0, 0.3, 1) forwards; }
+        
+        @keyframes inkFadeInTop { 
+            0% { opacity: 0; filter: blur(15px); transform: translateY(-15px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
         }
 
-        /* 精緻左下角落款 */
-        footer { 
-            padding: 60px 30px 100px;
-            display: flex; flex-direction: column; align-items: flex-start;
-        }
+        /* 精緻落款 */
+        footer { padding: 60px 30px 100px; display: flex; flex-direction: column; align-items: flex-start; }
         .brand-seal {
             width: 62px; height: 62px; border: 3px solid var(--seal-red);
             display: flex; align-items: center; justify-content: center;
             border-radius: 4px; transform: rotate(-3deg); margin-bottom: 25px;
-            position: relative; box-shadow: 2px 2px 0px rgba(165, 42, 42, 0.1);
         }
-        .brand-seal span { 
-            font-family: 'Zf-Font', serif; font-size: 17px; color: var(--seal-red); 
-            font-weight: 900; line-height: 1.1;
-        }
-        .brand-text { font-family: 'Zf-Font', serif; font-size: 24px; letter-spacing: 8px; margin-bottom: 8px; }
-        .brand-contact { font-size: 15px; color: var(--gold-leaf); font-weight: 600; letter-spacing: 1px; }
+        .brand-seal span { font-family: 'ZF-Font', serif; font-size: 17px; color: var(--seal-red); font-weight: 900; line-height: 1.1; text-align: center;}
+        .brand-text { font-family: 'ZF-Font', serif; font-size: 24px; letter-spacing: 8px; margin-bottom: 8px; }
+        .brand-contact { font-size: 15px; color: var(--gold-leaf); font-weight: 600; }
 
-        /* 彩色懸浮按鈕 */
-        .float-nav { position: fixed; bottom: 35px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 20px; }
-        .float-nav img { 
-            width: 62px; height: 62px; 
-            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
-            transition: 0.3s;
-        }
-        .float-nav img:active { transform: scale(0.9); }
+        /* 彩色按鈕 */
+        .float-nav { position: fixed; bottom: 35px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 18px; }
+        .float-nav img { width: 62px; height: 62px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15)); }
 
         .btn-calendar { display: block; width: 100%; padding: 22px; border: 1px solid var(--gold-leaf); color: var(--gold-leaf); text-align: center; text-decoration: none; font-size: 14px; letter-spacing: 5px; font-weight: 700; margin-top: 30px; }
-        .main-photo { width: 100%; border-radius: 2px; }
         #lightbox { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(249,247,242,0.98); display:none; justify-content:center; align-items:center; z-index:10000; }
     </style>
 </head>
@@ -148,8 +141,8 @@
 
     <main>
         <section class="reveal">
-            <img src="image/IMG_5803.jpg" class="main-photo" onclick="zoom(this.src)">
-            <p style="text-align: center; font-size: 16px; color: var(--sub-ink); letter-spacing: 0.45em; line-height: 4; margin-top: 20px;">
+            <img src="image/IMG_5803.jpg" class="main-photo" style="width:100%" onclick="zoom(this.src)">
+            <p style="text-align: center; font-size: 16px; color: var(--sub-ink); letter-spacing: 0.45em; line-height: 4; margin-top: 25px;">
                 溫柔從未遠離<br>只是換了一種方式<br>在我們的愛裡 永恆駐留
             </p>
         </section>
@@ -160,12 +153,12 @@
             <p style="text-align:center; font-size:14px; letter-spacing:5px; color:var(--sub-ink);">二零二六年 ‧ 正月 ‧ 星期二</p>
             
             <div class="event-card">
-                <div class="event-item">
+                <div>
                     <span class="info-tag" style="font-size:10px;">奠禮會場</span>
                     <div class="event-title">新北市立殯儀館 [ 崇仁廳 ]</div>
                     <div class="event-sub">新北市板橋區中正路 560 號</div>
                 </div>
-                <div class="event-item">
+                <div>
                     <span class="info-tag" style="font-size:10px;">牌位靈堂</span>
                     <div class="event-title">新北市立殯儀館 [ No.168 ]</div>
                     <div class="event-sub">親友弔唁 ‧ 24H 開放空間</div>
@@ -186,6 +179,7 @@
                 <img src="image/祥安資訊-板殯.png" onclick="zoom(this.src)">
                 <img src="image/IMG_9337.jpeg" onclick="zoom(this.src)">
             </div>
+            <a href="https://maps.app.goo.gl/3Xp8Z3gU4u5Z8PqV7" class="btn-map" target="_blank">📍 開啟 Google 地圖導航</a>
         </section>
 
         <section class="reveal" style="text-align: center;">
@@ -193,11 +187,11 @@
             <div style="display: flex; justify-content: center; gap: 60px; margin-top: 15px;">
                 <div onclick="toggleF()" style="cursor:pointer;">
                     <div style="font-size: 20px; font-weight: 700;">花籃樣式</div>
-                    <div style="font-size: 11px; color: var(--gold-leaf); margin-top: 5px;">CATALOG +</div>
+                    <div style="font-size: 11px; color: var(--gold-leaf);">CATALOG +</div>
                 </div>
                 <div onclick="location.href='https://line.me/ti/p/nZJmE8-b6X'" style="cursor:pointer; color: #00c300;">
                     <div style="font-size: 20px; font-weight: 700;">LINE 訂購</div>
-                    <div style="font-size: 11px; color: #00c300; margin-top: 5px;">SERVICE</div>
+                    <div style="font-size: 11px; color: #00c300;">SERVICE</div>
                 </div>
             </div>
             <div id="flowerG" style="display: none; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 35px;">
@@ -206,58 +200,21 @@
         </section>
 
         <section class="reveal">
-            <img src="image/IMG_6120.jpeg" class="main-photo">
+            <img src="image/IMG_6120.jpeg" class="main-photo" style="width:100%">
         </section>
 
-        <div class="calligraphy-area" id="thanksSec" style="background-color: var(--paper-bg); padding: 80px 25px 120px; overflow: hidden;">
-    <div class="ink-wrap" style="display: flex; flex-direction: row-reverse; justify-content: center; align-items: flex-start; min-height: 520px;">
-        
-        <div class="ink-line" style="animation-delay: 0.5s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            諸位尊長親朋，
+        <div class="calligraphy-area" id="thanksSec">
+            <div class="ink-wrap">
+                <div class="ink-line" style="animation-delay: 0.5s;">諸位尊長親朋，</div>
+                <div class="ink-line" style="animation-delay: 2.2s;">萬分感念遠道而來的陪伴。</div>
+                <div class="ink-line" style="animation-delay: 3.9s;">您們的關懷如微光暖意，</div>
+                <div class="ink-line" style="animation-delay: 5.6s;">撫慰了這份深重的思念。</div>
+                <div class="ink-line" style="animation-delay: 7.3s;">此情厚意，我輩銘記於心。</div>
+                <div class="ink-line" style="animation-delay: 9.0s; margin-right: 35px; margin-top: 80px;">
+                    家屬 <b style="border-bottom: 2.5px solid var(--gold-leaf); padding-bottom: 5px;">全體家眷</b> 叩謝
+                </div>
+            </div>
         </div>
-
-        <div class="ink-line" style="animation-delay: 2.2s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            萬分感念遠道而來的陪伴。
-        </div>
-
-        <div class="ink-line" style="animation-delay: 3.9s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            您們的關懷如微光暖意，
-        </div>
-
-        <div class="ink-line" style="animation-delay: 5.6s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            撫慰了這份深重的思念。
-        </div>
-
-        <div class="ink-line" style="animation-delay: 7.3s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            此情厚意，我輩銘記於心。
-        </div>
-
-        <div class="ink-line" style="animation-delay: 9.0s; margin-right: 35px; margin-top: 60px; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
-            家屬 <b style="border-bottom: 2.5px solid var(--gold-leaf); padding-bottom: 5px;">全體家眷</b> 叩謝
-        </div>
-
-    </div>
-</div>
-
-<style>
-    /* 確保動畫依然流暢 */
-    .ink-anim { 
-        animation: inkFadeInTop 2.8s cubic-bezier(0.2, 0, 0.3, 1) forwards; 
-    }
-
-    @keyframes inkFadeInTop { 
-        0% { 
-            opacity: 0; 
-            filter: blur(15px); 
-            transform: translateY(-10px); /* 從上方微降落，更有落筆感 */
-        }
-        100% { 
-            opacity: 1; 
-            filter: blur(0); 
-            transform: translateY(0); 
-        }
-    }
-</style>
 
         <footer>
             <div class="brand-seal">
