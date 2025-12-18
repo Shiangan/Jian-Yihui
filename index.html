@@ -162,13 +162,13 @@
             <div class="event-card">
                 <div class="event-item">
                     <span class="info-tag" style="font-size:10px;">奠禮會場</span>
-                    <div class="event-title">新北市立殯儀館 [崇仁廳]</div>
+                    <div class="event-title">新北市立殯儀館 [ 崇仁廳 ]</div>
                     <div class="event-sub">新北市板橋區中正路 560 號</div>
                 </div>
                 <div class="event-item">
                     <span class="info-tag" style="font-size:10px;">牌位靈堂</span>
-                    <div class="event-title">新北市立殯儀館 [景行廳]</div>
-                    <div class="event-sub">親友陪伴弔唁 ‧ 24H 開放空間</div>
+                    <div class="event-title">新北市立殯儀館 [ No.168 ]</div>
+                    <div class="event-sub">親友弔唁 ‧ 24H 開放空間</div>
                 </div>
             </div>
             
@@ -183,8 +183,8 @@
             <span class="info-tag">會場位置與交通</span>
             <p style="font-size: 15px; color: var(--sub-ink); line-height: 2.2;">捷運板南線「新埔站」1號出口轉乘公車橘5。開車親友請多利用館內收費停車場。</p>
             <div class="map-box">
-                <img src="image/IMG_6122.jpeg" onclick="zoom(this.src)">
-                <img src="image/IMG_6121.jpeg" onclick="zoom(this.src)">
+                <img src="image/祥安資訊-板殯.png" onclick="zoom(this.src)">
+                <img src="image/IMG_9337.jpeg" onclick="zoom(this.src)">
             </div>
         </section>
 
@@ -209,16 +209,55 @@
             <img src="image/IMG_6120.jpeg" class="main-photo">
         </section>
 
-        <div class="calligraphy-area" id="thanksSec">
-            <div class="ink-wrap">
-                <div class="ink-line" style="animation-delay: 0.3s;">親愛的親友，</div>
-                <div class="ink-line" style="animation-delay: 1.8s;">感謝您遠道而來的陪伴。</div>
-                <div class="ink-line" style="animation-delay: 3.3s;">您的溫暖關懷，</div>
-                <div class="ink-line" style="animation-delay: 4.8s;">讓思念化作永恆力量。</div>
-                <div class="ink-line" style="animation-delay: 6.3s;">我們銘記於心。</div>
-                <div class="ink-line" style="animation-delay: 7.8s; margin-right: 25px;">家屬 <b style="border-bottom: 2px solid var(--gold-leaf); padding-bottom: 5px;">全體家眷</b> 叩謝</div>
-            </div>
+        <div class="calligraphy-area" id="thanksSec" style="background-color: var(--paper-bg); padding: 80px 25px 120px; overflow: hidden;">
+    <div class="ink-wrap" style="display: flex; flex-direction: row-reverse; justify-content: center; align-items: flex-start; min-height: 520px;">
+        
+        <div class="ink-line" style="animation-delay: 0.5s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            諸位尊長親朋，
         </div>
+
+        <div class="ink-line" style="animation-delay: 2.2s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            萬分感念遠道而來的陪伴。
+        </div>
+
+        <div class="ink-line" style="animation-delay: 3.9s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            您們的關懷如微光暖意，
+        </div>
+
+        <div class="ink-line" style="animation-delay: 5.6s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            撫慰了這份深重的思念。
+        </div>
+
+        <div class="ink-line" style="animation-delay: 7.3s; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            此情厚意，我輩銘記於心。
+        </div>
+
+        <div class="ink-line" style="animation-delay: 9.0s; margin-right: 35px; margin-top: 60px; writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: 26px; letter-spacing: 12px; line-height: 2.8; color: #1a1a1a; opacity: 0; filter: blur(12px);">
+            家屬 <b style="border-bottom: 2.5px solid var(--gold-leaf); padding-bottom: 5px;">全體家眷</b> 叩謝
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* 確保動畫依然流暢 */
+    .ink-anim { 
+        animation: inkFadeInTop 2.8s cubic-bezier(0.2, 0, 0.3, 1) forwards; 
+    }
+
+    @keyframes inkFadeInTop { 
+        0% { 
+            opacity: 0; 
+            filter: blur(15px); 
+            transform: translateY(-10px); /* 從上方微降落，更有落筆感 */
+        }
+        100% { 
+            opacity: 1; 
+            filter: blur(0); 
+            transform: translateY(0); 
+        }
+    }
+</style>
 
         <footer>
             <div class="brand-seal">
