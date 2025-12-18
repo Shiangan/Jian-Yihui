@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'ChenYu';
-  src: url('辰魚落雁體.ttf') format('truetype');
+  font-family: 'Iansui';
+  src: url('芫荽體.ttf') format('truetype');
   font-display: swap; /* 或 optional / block */
 }
 
@@ -62,7 +62,7 @@ header h1 {
 
 /* 应用到“陳顯銘訃告” */
 #header h1 {
-    font-family: 'ChenYu', sans-serif; /* 使用文鼎海報體 */
+  font-family: 'Iansui', sans-serif; /* 使用文鼎海報體 */
 }
 
 /* 訃告正本部分样式 */
@@ -179,7 +179,7 @@ header h1 {
 }
 
 #donate-flower a.btn {
-    font-family: 'ChenYu', Arial;
+    font-family: 'Iansui', Arial;
     display: inline-block;
     padding: 10px 20px;
     font-size: 26px; /* 按钮字体大小 */
