@@ -5,207 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>永恆思念：簡翊卉 夫人</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --bg: #f8f7f5;
-            --main: #2a2a2a;
-            --accent: #b4977a;
-            --sub: #888888;
-            --glow: rgba(255, 255, 255, 0.5);
+        /* 1. 注入您的正風體 (請確保字體檔案與此 HTML 放在同一個資料夾) */
+        @font-face {
+            font-family: '/ZF-Font';
+            src: url('正風體.ttf') format('truetype');
+            font-display: swap;
         }
 
-        /* 全域無縫設計 */
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--main); font-family: 'Noto Serif TC', serif; line-height: 1.8; overflow-x: hidden; }
+        :root {
+            --bg: #f9f8f6;
+            --main: #1a1a1a;
+            --accent: #b4977a;
+            --sub: #777777;
+            --content-width: 500px; /* 電腦版寬度限制，維持精緻感 */
+        }
 
-        /* 呼吸感段落 */
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--main); 
+            font-family: 'Noto Serif TC', serif; /* 預設襯線體 */
+            line-height: 1.8; 
+            overflow-x: hidden;
+        }
+
+        /* 確保電腦版與手機版比例一致的核心 */
+        .wrapper {
+            width: 100%;
+            max-width: var(--content-width);
+            margin: 0 auto;
+            background: transparent;
+            position: relative;
+        }
+
         section { 
-            min-height: 85vh; display: flex; flex-direction: column; justify-content: center; 
-            padding: 80px 28px; opacity: 0; transform: translateY(30px); 
+            padding: 80px 30px; 
+            opacity: 0; 
+            transform: translateY(30px); 
             transition: 2.8s cubic-bezier(0.16, 1, 0.3, 1); 
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        .watermark { position: absolute; font-size: 14vw; font-weight: 900; color: rgba(180, 151, 122, 0.03); letter-spacing: 2vw; z-index: -1; text-align: center; width: 100%; pointer-events: none; top: 10%; }
+        .watermark { position: absolute; font-size: 80px; font-weight: 900; color: rgba(180, 151, 122, 0.03); letter-spacing: 15px; z-index: -1; text-align: center; width: 100%; pointer-events: none; left: 0; }
 
-        /* 頁首美學 */
-        header { text-align: center; padding: 18vh 0 10vh; }
-        .name-title { font-size: clamp(42px, 13vw, 56px); font-weight: 900; letter-spacing: 0.35em; margin: 25px 0; text-indent: 0.35em; }
-        .date-range { font-size: 14px; letter-spacing: 7px; color: var(--accent); font-weight: 400; }
+        /* 頁首 */
+        header { text-align: center; padding: 15vh 0 10vh; }
+        .name-title { 
+            font-family: 'ZF-Font', 'Noto Serif TC', serif; /* 優先使用正風體 */
+            font-size: clamp(45px, 12vw, 65px); 
+            font-weight: 900; 
+            letter-spacing: 0.3em; 
+            margin: 20px 0; 
+            text-indent: 0.3em;
+        }
+        .date-range { font-size: 14px; letter-spacing: 7px; color: var(--accent); }
 
-        /* 👑 奠禮資訊：無框化排版 */
-        .info-content { position: relative; width: 100%; }
+        /* 儀程內容 */
         .info-tag { font-size: 11px; letter-spacing: 8px; color: var(--accent); font-weight: 700; text-align: center; margin-bottom: 30px; display: block; }
-        .main-date { font-size: 85px; font-weight: 200; text-align: center; line-height: 1; color: var(--main); margin-bottom: 10px; }
-        .lunar-date { text-align: center; font-size: 12px; color: var(--sub); letter-spacing: 4px; margin-bottom: 60px; }
-        
+        .main-date { 
+            font-family: 'ZF-Font', serif; 
+            font-size: 90px; font-weight: 200; text-align: center; line-height: 1; color: var(--main); margin-bottom: 10px; 
+        }
         .schedule-item { margin-bottom: 45px; text-align: center; }
-        .sch-label { font-size: 10px; color: var(--accent); letter-spacing: 5px; margin-bottom: 10px; display: block; }
         .sch-val { font-size: 22px; font-weight: 500; letter-spacing: 2px; }
-        .sch-sub { font-size: 13px; color: var(--sub); margin-top: 5px; }
+        .time-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; border-top: 1px solid rgba(180, 151, 122, 0.1); padding-top: 40px; }
+        .time-box b { font-size: 35px; font-weight: 200; color: var(--accent); font-family: 'ZF-Font', serif; }
 
-        .time-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px; border-top: 1px solid rgba(180, 151, 122, 0.1); padding-top: 40px; }
-        .time-box span { font-size: 10px; color: var(--sub); letter-spacing: 3px; display: block; margin-bottom: 8px; }
-        .time-box b { font-size: 32px; font-weight: 200; color: var(--accent); }
+        /* 交通與注意資訊 */
+        .note-item { font-size: 13px; color: var(--sub); letter-spacing: 2px; margin-bottom: 15px; text-align: center; }
+        .traffic-desc { font-size: 14px; color: var(--sub); line-height: 2.2; text-align: justify; margin-bottom: 30px; }
 
-        /* 💡 注意事項設計：如詩清單 */
-        .note-list { margin-top: 40px; text-align: center; }
-        .note-item { font-size: 13px; color: var(--sub); letter-spacing: 2px; margin-bottom: 12px; }
-
-        /* 📍 交通資訊：雜誌感排版 */
-        .traffic-grid { margin-top: 30px; }
-        .traffic-text-box { margin-bottom: 40px; }
-        .traffic-title { font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 15px; letter-spacing: 2px; }
-        .traffic-desc { font-size: 13px; color: var(--sub); line-height: 2.2; text-align: justify; }
-
-        /* 📮 墨染致謝美學 (無邊框版) */
+        /* 📮 墨染致謝 (完全無邊框、正風體應用) */
         .thanks-area { position: relative; padding: 120px 0; display: flex; justify-content: center; }
-        .letter-grid { display: flex; flex-direction: row-reverse; height: 420px; }
+        .letter-grid { display: flex; flex-direction: row-reverse; height: 450px; }
         .letter-col { 
-            writing-mode: vertical-rl; font-size: 20px; letter-spacing: 10px; line-height: 2.8; 
-            color: #333; opacity: 0; filter: blur(10px);
+            writing-mode: vertical-rl; 
+            font-family: 'ZF-Font', serif; /* 套用正風體 */
+            font-size: 24px; /* 正風體建議大一點才有氣勢 */
+            letter-spacing: 12px; 
+            line-height: 2.5; 
+            color: #222; 
+            opacity: 0; 
+            filter: blur(15px);
         }
         .ink-anim { animation: inkDissolve 4.5s cubic-bezier(0.2, 0, 0.3, 1) forwards; }
         @keyframes inkDissolve { 
-            0% { opacity: 0; filter: blur(15px); clip-path: inset(0 0 100% 0); }
+            0% { opacity: 0; filter: blur(20px); clip-path: inset(0 0 100% 0); }
             100% { opacity: 1; filter: blur(0); clip-path: inset(0 0 0 0); }
         }
 
-        /* 藝術化底部落款 */
+        /* 底部落款 */
         footer { padding: 150px 20px 100px; text-align: center; }
-        .footer-line { width: 1px; height: 100px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto 50px; }
-        .brand-name { font-size: 16px; letter-spacing: 12px; text-indent: 12px; font-weight: 200; margin-bottom: 15px; }
-        .brand-advisor { font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 3px; }
+        .brand-name { font-family: 'ZF-Font', serif; font-size: 20px; letter-spacing: 10px; text-indent: 10px; margin-bottom: 15px; }
 
         /* 共用組件 */
-        .img-full { width: 100%; margin-bottom: 30px; }
-        .img-full img { width: 100%; display: block; transition: 1s; }
+        .img-full { width: 100%; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .img-full img { width: 100%; display: block; }
         .btn-minimal { display: block; width: 100%; padding: 22px; border: 0.5px solid var(--accent); color: var(--accent); text-decoration: none; font-size: 11px; letter-spacing: 5px; text-align: center; margin-top: 50px; }
         
-        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); display: none; justify-content: center; align-items: center; z-index: 10000; }
         .nav-float { position: fixed; bottom: 40px; right: 25px; z-index: 1000; display: flex; flex-direction: column; gap: 20px; }
-        .nav-float img { width: 60px; filter: grayscale(1) opacity(0.4); }
+        .nav-float img { width: 55px; filter: grayscale(1) opacity(0.4); }
+
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; display: none; justify-content: center; align-items: center; z-index: 10000; }
     </style>
 </head>
 <body>
 
 <audio id="bgm" loop><source src="Misson Part 1.mp3" type="audio/mp3"></audio>
 
-<header>
-    <div class="watermark">FOREVER</div>
-    <div class="date-range">1954 — 2025</div>
-    <h1 class="name-title">簡翊卉 夫人</h1>
-</header>
+<div class="wrapper">
+    <header>
+        <div class="watermark">FOREVER</div>
+        <div class="date-range">1954 — 2025</div>
+        <h1 class="name-title">簡翊卉 夫人</h1>
+    </header>
 
-<main>
-    <section class="reveal">
-        <div class="img-full"><img src="image/IMG_5803.jpg" onclick="zoom(this.src)"></div>
-        <p style="text-align: center; font-size: 15px; line-height: 4; letter-spacing: 0.45em; color: var(--sub);">
-            您的溫柔 是我們心底的暖陽<br>愛 將穿越時空 永恆閃耀
-        </p>
-    </section>
+    <main>
+        <section class="reveal">
+            <div class="img-full"><img src="image/IMG_5803.jpg" onclick="zoom(this.src)"></div>
+            <p style="text-align: center; font-size: 15px; line-height: 4; letter-spacing: 0.45em; color: var(--sub);">
+                溫柔如昔 靜謐而恆遠<br>思念在光影中 永恆駐留
+            </p>
+        </section>
 
-    <section class="reveal">
-        <div class="watermark">MEMORY</div>
-        <div class="info-content">
-            <span class="info-tag">追思奠禮 ‧ 儀程詳情</span>
-            <div class="main-date">01.06</div>
-            <p class="lunar-date">二 零 二 六 年 ‧ 正 月 ‧ 星期二</p>
-            
-            <div class="schedule-item">
-                <span class="sch-label">奠禮會場</span>
-                <p class="sch-val">新北市立殯儀館 [崇仁廳]</p>
-                <p class="sch-sub">板橋區中正路 560 號</p>
+        <section class="reveal">
+            <div class="watermark">MEMORY</div>
+            <div class="info-content">
+                <span class="info-tag">追思奠禮 ‧ 儀程詳情</span>
+                <div class="main-date">01.06</div>
+                <p style="text-align:center; font-size:12px; color:var(--sub); letter-spacing:4px; margin-bottom:60px;">二 零 二 六 年 ‧ 正 月 ‧ 星期二</p>
+                
+                <div class="schedule-item">
+                    <p class="sch-val">新北市立殯儀館 [崇仁廳]</p>
+                    <p style="font-size:13px; color:var(--sub);">板橋區中正路 560 號</p>
+                </div>
+
+                <div class="schedule-item">
+                    <p class="sch-val">新北市立殯儀館 [景行廳]</p>
+                    <p style="font-size:13px; color:var(--sub);">親友陪伴弔唁 ‧ 24H 開放</p>
+                </div>
+
+                <div class="time-split">
+                    <div class="time-box"><span>家奠禮</span><b>08:00</b></div>
+                    <div class="time-box"><span>公奠禮</span><b>08:40</b></div>
+                </div>
             </div>
+        </section>
 
-            <div class="schedule-item">
-                <span class="sch-label">牌位靈堂</span>
-                <p class="sch-val">新北市立殯儀館 [景行廳]</p>
-                <p class="sch-sub">親友陪伴弔唁 ‧ 隨時開放</p>
+        <section class="reveal">
+            <span class="info-tag">奠禮參加 ‧ 注意事項</span>
+            <div style="margin-top:40px;">
+                <p class="note-item">● 配合場館規定，請保持會場靜謐</p>
+                <p class="note-item">● 建議佩戴口罩，守護彼此健康</p>
+                <p class="note-item">● 奠儀請於接待處交付，並領取致謝禮</p>
             </div>
+        </section>
 
-            <div class="time-split">
-                <div class="time-box"><span>家奠禮</span><b>08:00</b></div>
-                <div class="time-box"><span>公奠禮</span><b>08:40</b></div>
+        <section class="reveal">
+            <span class="info-tag">會場交通 ‧ 位置導引</span>
+            <div style="margin-top:40px;">
+                <p class="traffic-desc"><b>【大眾運輸】</b><br>搭乘捷運板南線至「新埔站」1號出口，轉乘公車橘5、藍17、810至「新北市立殯儀館」站下車，步行約 3 分鐘即可抵達。</p>
+                <div class="img-full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                    <img src="image/IMG_6122.jpeg" onclick="zoom(this.src)">
+                    <img src="image/IMG_6121.jpeg" onclick="zoom(this.src)">
+                </div>
+                <p class="traffic-desc" style="margin-top:30px;"><b>【自行開車】</b><br>館內設有平面收費停車場，因當日車流較大，建議提早抵達或導航搜尋：新北市板橋區中正路 560 號。</p>
             </div>
-            
-            <a href="#" class="btn-minimal" onclick="addCal()">ADD TO CALENDAR</a>
-        </div>
-    </section>
+        </section>
 
-    <section class="reveal">
-        <div class="watermark" style="top: 40%;">NOTICE</div>
-        <span class="info-tag">奠禮參加 ‧ 注意事項</span>
-        <div class="note-list">
-            <p class="note-item">● 配合場館規定，會場內請保持靜謐</p>
-            <p class="note-item">● 建議佩戴口罩，守護彼此健康</p>
-            <p class="note-item">● 會場設有服務人員，如有需求請隨時告知</p>
-            <p class="note-item">● 奠儀請於接待處交付，並領取致謝禮</p>
-        </div>
-    </section>
+        <section class="reveal">
+            <div class="img-full"><img src="image/IMG_6120.jpeg" onclick="zoom(this.src)"></div>
+        </section>
 
-    <section class="reveal">
-        <div class="watermark">MAPS</div>
-        <span class="info-tag">會場交通 ‧ 位置導引</span>
-        
-        <div class="traffic-grid">
-            <div class="traffic-text-box">
-                <h4 class="traffic-title">捷運與公車</h4>
-                <p class="traffic-desc">搭乘捷運板南線至「新埔站」1號出口，轉乘公車橘5、藍17、810至「新北市立殯儀館」站下車，步行約 3 分鐘即可抵達會場。</p>
+        <section class="thanks-area" id="thanksSec">
+            <div class="letter-grid">
+                <div class="letter-col" style="animation-delay: 1.5s;">親愛的親友，</div>
+                <div class="letter-col" style="animation-delay: 5s;">在生命最沈重的時刻，</div>
+                <div class="letter-col" style="animation-delay: 8.5s;">感謝您遠道而來的陪伴。</div>
+                <div class="letter-col" style="animation-delay: 12s;">您的關懷如微光，</div>
+                <div class="letter-col" style="animation-delay: 15.5s;">溫暖了這份離別。</div>
+                <div class="letter-col" style="animation-delay: 19s;">銘記於心。</div>
+                <div class="letter-col" style="animation-delay: 22.5s; margin-right: 35px;">家屬 <b style="border-bottom: 2px solid var(--accent);">全體家眷</b> 叩謝</div>
             </div>
-            <div class="img-full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                <img src="image/IMG_6122.jpeg" onclick="zoom(this.src)">
-                <img src="image/IMG_6121.jpeg" onclick="zoom(this.src)">
-            </div>
-            <div class="traffic-text-box" style="margin-top: 20px;">
-                <h4 class="traffic-title">自行開車</h4>
-                <p class="traffic-desc">殯儀館內設有平面大型收費停車場，惟當日車流較多，建議您提前抵達或利用大眾運輸工具。導航請搜尋：新北市板橋區中正路 560 號。</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="reveal" style="min-height: auto; text-align: center;">
-        <span class="info-tag">致贈花禮 ‧ 服務</span>
-        <div style="display: flex; justify-content: center; gap: 60px; margin-top: 20px;">
-            <div onclick="toggleF()" style="cursor: pointer;">
-                <div style="font-size: 18px; font-weight: 500;">花籃樣式</div>
-                <div style="font-size: 10px; color: var(--sub); margin-top: 5px;">CATALOG +</div>
-            </div>
-            <div onclick="location.href='https://line.me/ti/p/nZJmE8-b6X'" style="cursor: pointer;">
-                <div style="font-size: 18px; font-weight: 500; color: #00c300;">LINE 訂購</div>
-                <div style="font-size: 10px; color: var(--sub); margin-top: 5px;">SERVICE</div>
-            </div>
-        </div>
-        <div id="fG" style="display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px;">
-            <div class="img-full"><img src="image/花籃A款.JPG"><p style="font-size:10px; margin-top:10px;">A款 $2,500/對</p></div>
-            <div class="img-full"><img src="image/花籃B款.JPG"><p style="font-size:10px; margin-top:10px;">B款 $3,000/對</p></div>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <div class="img-full"><img src="image/IMG_6120.jpeg" onclick="zoom(this.src)"></div>
-    </section>
-
-    <section class="thanks-area" id="thanksSec">
-        <div class="letter-grid">
-            <div class="letter-col" style="animation-delay: 1.5s;">親愛的親友，</div>
-            <div class="letter-col" style="animation-delay: 5s;">在生命最沈重的時刻，</div>
-            <div class="letter-col" style="animation-delay: 8.5s;">感謝您遠道而來的陪伴。</div>
-            <div class="letter-col" style="animation-delay: 12s;">您的關懷如微光，</div>
-            <div class="letter-col" style="animation-delay: 15.5s;">溫暖了這份離別。</div>
-            <div class="letter-col" style="animation-delay: 19s;">這份深情，我們銘記於心。</div>
-            <div class="letter-col" style="animation-delay: 22.5s; margin-right: 35px;">家屬 <b style="border-bottom: 2px solid var(--accent); padding-bottom: 5px;">全體家眷</b> 叩謝</div>
-        </div>
-    </section>
-
-    <footer class="reveal">
-        <div class="footer-line"></div>
-        <div class="brand-name">祥安生命有限公司</div>
-        <div style="font-size: 9px; color: var(--sub); letter-spacing: 5px; margin-bottom: 30px;">DIGNIFIED FUNERAL SERVICE</div>
-        <div class="brand-advisor">禮儀服務專員 ‧ 陳柏元 0938-179-858</div>
-        <p style="font-size: 9px; color: #ddd; margin-top: 100px; letter-spacing: 5px;">© 2025 JIAN YIHUI MEMORIAL</p>
-    </footer>
-</main>
+        <footer class="reveal">
+            <div class="brand-name">祥安生命有限公司</div>
+            <div style="font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 3px;">禮儀服務專員 ‧ 陳柏元 0938-179-858</div>
+            <p style="font-size: 9px; color: #ccc; margin-top: 80px; letter-spacing: 5px;">© 2025 JIAN YIHUI MEMORIAL</p>
+        </footer>
+    </main>
+</div>
 
 <div class="nav-float">
     <a href="tel:0938179858"><img src="image/24小時專線.png"></a>
@@ -230,14 +227,8 @@
     ['click','touchstart','scroll'].forEach(e => document.addEventListener(e, startM, {once:true}));
     
     function zoom(src) { document.getElementById('lbi').src = src; document.getElementById('lightbox').style.display = 'flex'; }
-    function toggleF() {
-        const g = document.getElementById('fG');
-        g.style.display = g.style.display === 'grid' ? 'none' : 'grid';
-    }
-    function addCal() {
-        window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立殯儀館 崇仁廳')}`);
-    }
 </script>
 
 </body>
 </html>
+
