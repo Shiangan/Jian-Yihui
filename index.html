@@ -7,93 +7,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. 注入您的正風體 (請確保字體檔案與此 HTML 放在同一個資料夾) */
+        /* 1. 字體注入：指定路徑 /ZF-Font.ttf */
         @font-face {
-            font-family: '/ZF-Font';
-            src: url('ZF-Font.ttf') format('truetype');
+            font-family: 'Zf-Font';
+            src: url('/ZF-Font.ttf') format('truetype');
             font-display: swap;
         }
 
         :root {
-            --bg: #f9f8f6;
-            --main: #1a1a1a;
+            --bg: #f8f7f5;
+            --main: #2a2a2a;
             --accent: #b4977a;
-            --sub: #777777;
-            --content-width: 500px; /* 電腦版寬度限制，維持精緻感 */
+            --sub: #888888;
+            --desktop-w: 500px;
         }
 
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
-        
-        body { 
-            background-color: var(--bg); 
-            color: var(--main); 
-            font-family: 'Noto Serif TC', serif; /* 預設襯線體 */
-            line-height: 1.8; 
-            overflow-x: hidden;
-        }
+        body { background-color: var(--bg); color: var(--main); font-family: 'Noto Serif TC', serif; line-height: 1.8; overflow-x: hidden; }
 
-        /* 確保電腦版與手機版比例一致的核心 */
-        .wrapper {
+        /* 跨平台自適應容器 */
+        .ultimate-wrapper {
             width: 100%;
-            max-width: var(--content-width);
+            max-width: var(--desktop-w);
             margin: 0 auto;
-            background: transparent;
             position: relative;
         }
 
+        /* 呼吸感段落動效 */
         section { 
-            padding: 80px 30px; 
-            opacity: 0; 
-            transform: translateY(30px); 
+            min-height: 85vh; display: flex; flex-direction: column; justify-content: center; 
+            padding: 80px 30px; opacity: 0; transform: translateY(30px); 
             transition: 2.8s cubic-bezier(0.16, 1, 0.3, 1); 
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        .watermark { position: absolute; font-size: 80px; font-weight: 900; color: rgba(180, 151, 122, 0.03); letter-spacing: 15px; z-index: -1; text-align: center; width: 100%; pointer-events: none; left: 0; }
+        .watermark { position: absolute; font-size: 15vw; font-weight: 900; color: rgba(180, 151, 122, 0.03); letter-spacing: 2vw; z-index: -1; text-align: center; width: 100%; pointer-events: none; }
+        @media (min-width: 500px) { .watermark { font-size: 80px; } }
 
-        /* 頁首 */
-        header { text-align: center; padding: 15vh 0 10vh; }
+        /* 頁首美學 */
+        header { text-align: center; padding: 18vh 0 10vh; }
         .name-title { 
-            font-family: 'ZF-Font', 'Noto Serif TC', serif; /* 優先使用正風體 */
-            font-size: clamp(45px, 12vw, 65px); 
-            font-weight: 900; 
-            letter-spacing: 0.3em; 
-            margin: 20px 0; 
-            text-indent: 0.3em;
+            font-family: 'ZF-Font', 'Noto Serif TC', serif;
+            font-size: clamp(45px, 13vw, 68px); 
+            font-weight: 900; letter-spacing: 0.3em; margin: 25px 0; text-indent: 0.3em; 
         }
         .date-range { font-size: 14px; letter-spacing: 7px; color: var(--accent); }
 
-        /* 儀程內容 */
+        /* 奠禮資訊：無框化排版 */
         .info-tag { font-size: 11px; letter-spacing: 8px; color: var(--accent); font-weight: 700; text-align: center; margin-bottom: 30px; display: block; }
         .main-date { 
-            font-family: 'ZF-Font', serif; 
+            font-family: 'ZF-Font', serif;
             font-size: 90px; font-weight: 200; text-align: center; line-height: 1; color: var(--main); margin-bottom: 10px; 
         }
         .schedule-item { margin-bottom: 45px; text-align: center; }
         .sch-val { font-size: 22px; font-weight: 500; letter-spacing: 2px; }
         .time-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; border-top: 1px solid rgba(180, 151, 122, 0.1); padding-top: 40px; }
-        .time-box b { font-size: 35px; font-weight: 200; color: var(--accent); font-family: 'ZF-Font', serif; }
+        .time-box b { font-family: 'ZF-Font', serif; font-size: 35px; font-weight: 200; color: var(--accent); }
 
-        /* 交通與注意資訊 */
+        /* 注意事項 */
         .note-item { font-size: 13px; color: var(--sub); letter-spacing: 2px; margin-bottom: 15px; text-align: center; }
-        .traffic-desc { font-size: 14px; color: var(--sub); line-height: 2.2; text-align: justify; margin-bottom: 30px; }
 
-        /* 📮 墨染致謝 (完全無邊框、正風體應用) */
+        /* 交通導引 */
+        .traffic-desc { font-size: 14px; color: var(--sub); line-height: 2.2; text-align: justify; margin-bottom: 25px; }
+
+        /* 📮 墨染致謝美學 */
         .thanks-area { position: relative; padding: 120px 0; display: flex; justify-content: center; }
-        .letter-grid { display: flex; flex-direction: row-reverse; height: 450px; }
+        .letter-grid { font-family: 'ZF-Font', serif; display: flex; flex-direction: row-reverse; height: 450px; }
         .letter-col { 
-            writing-mode: vertical-rl; 
-            font-family: 'ZF-Font', serif; /* 套用正風體 */
-            font-size: 24px; /* 正風體建議大一點才有氣勢 */
-            letter-spacing: 12px; 
-            line-height: 2.5; 
-            color: #222; 
-            opacity: 0; 
-            filter: blur(15px);
+            writing-mode: vertical-rl; font-family: 'ZF-Font', serif; 
+            font-size: 24px; letter-spacing: 12px; line-height: 2.8; 
+            color: #222; opacity: 0; filter: blur(15px);
         }
         .ink-anim { animation: inkDissolve 4.5s cubic-bezier(0.2, 0, 0.3, 1) forwards; }
         @keyframes inkDissolve { 
@@ -101,17 +84,20 @@
             100% { opacity: 1; filter: blur(0); clip-path: inset(0 0 0 0); }
         }
 
-        /* 底部落款 */
+        /* 底部落款：祥安生命 */
         footer { padding: 150px 20px 100px; text-align: center; }
-        .brand-name { font-family: 'ZF-Font', serif; font-size: 20px; letter-spacing: 10px; text-indent: 10px; margin-bottom: 15px; }
+        .footer-line { width: 1px; height: 100px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto 40px; }
+        .brand-name { font-family: 'ZF-Font', serif; font-size: 22px; letter-spacing: 12px; text-indent: 12px; margin-bottom: 15px; font-weight: 200; }
+        .brand-advisor { font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 3px; }
 
-        /* 共用組件 */
-        .img-full { width: 100%; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        /* 組件風格 */
+        .img-full { width: 100%; margin-bottom: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.03); }
         .img-full img { width: 100%; display: block; }
         .btn-minimal { display: block; width: 100%; padding: 22px; border: 0.5px solid var(--accent); color: var(--accent); text-decoration: none; font-size: 11px; letter-spacing: 5px; text-align: center; margin-top: 50px; }
         
         .nav-float { position: fixed; bottom: 40px; right: 25px; z-index: 1000; display: flex; flex-direction: column; gap: 20px; }
-        .nav-float img { width: 55px; filter: grayscale(1) opacity(0.4); }
+        .nav-float img { width: 58px; filter: grayscale(1) opacity(0.4); transition: 0.4s; }
+        .nav-float img:hover { filter: grayscale(0) opacity(1); }
 
         #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; display: none; justify-content: center; align-items: center; z-index: 10000; }
     </style>
@@ -120,7 +106,7 @@
 
 <audio id="bgm" loop><source src="Misson Part 1.mp3" type="audio/mp3"></audio>
 
-<div class="wrapper">
+<div class="ultimate-wrapper">
     <header>
         <div class="watermark">FOREVER</div>
         <div class="date-range">1954 — 2025</div>
@@ -131,7 +117,7 @@
         <section class="reveal">
             <div class="img-full"><img src="image/IMG_5803.jpg" onclick="zoom(this.src)"></div>
             <p style="text-align: center; font-size: 15px; line-height: 4; letter-spacing: 0.45em; color: var(--sub);">
-                溫柔如昔 靜謐而恆遠<br>思念在光影中 永恆駐留
+                溫柔從未遠離<br>只是換了一種方式<br>在我們的愛裡 永恆駐留
             </p>
         </section>
 
@@ -156,15 +142,17 @@
                     <div class="time-box"><span>家奠禮</span><b>08:00</b></div>
                     <div class="time-box"><span>公奠禮</span><b>08:40</b></div>
                 </div>
+                <a href="#" class="btn-minimal" onclick="addCal()">ADD TO CALENDAR</a>
             </div>
         </section>
 
         <section class="reveal">
             <span class="info-tag">奠禮參加 ‧ 注意事項</span>
             <div style="margin-top:40px;">
-                <p class="note-item">● 配合場館規定，請保持會場靜謐</p>
+                <p class="note-item">● 配合場館規定，會場內請保持靜謐</p>
                 <p class="note-item">● 建議佩戴口罩，守護彼此健康</p>
                 <p class="note-item">● 奠儀請於接待處交付，並領取致謝禮</p>
+                <p class="note-item">● 懇辭花籃、奠儀（依實際情況修改）</p>
             </div>
         </section>
 
@@ -176,7 +164,25 @@
                     <img src="image/IMG_6122.jpeg" onclick="zoom(this.src)">
                     <img src="image/IMG_6121.jpeg" onclick="zoom(this.src)">
                 </div>
-                <p class="traffic-desc" style="margin-top:30px;"><b>【自行開車】</b><br>館內設有平面收費停車場，因當日車流較大，建議提早抵達或導航搜尋：新北市板橋區中正路 560 號。</p>
+                <p class="traffic-desc" style="margin-top:30px;"><b>【自行開車】</b><br>館內設有平面收費停車場，因當日車流較大，建議提早抵達。導航搜尋：新北市板橋區中正路 560 號。</p>
+            </div>
+        </section>
+
+        <section class="reveal" style="min-height: auto; text-align: center;">
+            <span class="info-tag">致贈花禮 ‧ 服務</span>
+            <div style="display: flex; justify-content: center; gap: 60px; margin-top: 20px;">
+                <div onclick="toggleF()" style="cursor: pointer;">
+                    <div style="font-size: 18px; font-weight: 500; letter-spacing: 2px;">花籃樣式</div>
+                    <div style="font-size: 10px; color: var(--sub); margin-top: 5px;">CATALOG +</div>
+                </div>
+                <div onclick="location.href='https://line.me/ti/p/nZJmE8-b6X'" style="cursor: pointer;">
+                    <div style="font-size: 18px; font-weight: 500; color: #00c300; letter-spacing: 2px;">LINE 訂購</div>
+                    <div style="font-size: 10px; color: var(--sub); margin-top: 5px;">SERVICE</div>
+                </div>
+            </div>
+            <div id="fG" style="display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px;">
+                <div class="img-full"><img src="image/花籃A款.JPG"><p style="font-size:10px; margin-top:10px;">A款 $2,500/對</p></div>
+                <div class="img-full"><img src="image/花籃B款.JPG"><p style="font-size:10px; margin-top:10px;">B款 $3,000/對</p></div>
             </div>
         </section>
 
@@ -197,9 +203,10 @@
         </section>
 
         <footer class="reveal">
+            <div class="footer-line"></div>
             <div class="brand-name">祥安生命有限公司</div>
-            <div style="font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 3px;">禮儀服務專員 ‧ 陳柏元 0938-179-858</div>
-            <p style="font-size: 9px; color: #ccc; margin-top: 80px; letter-spacing: 5px;">© 2025 JIAN YIHUI MEMORIAL</p>
+            <div class="brand-advisor">禮儀服務專員 ‧ 陳柏元 0938-179-858</div>
+            <p style="font-size: 9px; color: #ccc; margin-top: 100px; letter-spacing: 5px;">© 2025 JIAN YIHUI MEMORIAL</p>
         </footer>
     </main>
 </div>
@@ -227,8 +234,14 @@
     ['click','touchstart','scroll'].forEach(e => document.addEventListener(e, startM, {once:true}));
     
     function zoom(src) { document.getElementById('lbi').src = src; document.getElementById('lightbox').style.display = 'flex'; }
+    function toggleF() {
+        const g = document.getElementById('fG');
+        g.style.display = g.style.display === 'grid' ? 'none' : 'grid';
+    }
+    function addCal() {
+        window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立殯儀館 崇仁廳')}`);
+    }
 </script>
 
 </body>
 </html>
-
