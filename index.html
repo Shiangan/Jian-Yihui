@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
     
     <style>
-        /* 載入毛筆字體 */
+        /* 載入正風體：確保檔案 Zf-Font.ttf 位於同路徑 */
         @font-face {
             font-family: 'ZF-Font';
             src: url('Zf-Font.ttf') format('truetype');
@@ -36,7 +36,7 @@
             background-color: var(--paper); min-height: 100vh;
         }
 
-        /* 🏛 浮水印背景 (隨滾動呈現層次) */
+        /* 🏛 浮水印背景 (Memory) */
         .bg-watermark {
             position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
             font-size: clamp(80px, 18vw, 110px); font-weight: 300; font-family: serif;
@@ -77,25 +77,18 @@
         .time-item b { font-size: 40px; font-weight: 600; color: var(--gold); }
         .time-item span { font-size: 11px; display: block; color: var(--sub-ink); letter-spacing: 2px; }
 
-        /* 花禮區域 */
-        .flower-grid { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px; }
-        .flower-item { text-align: center; }
-        .flower-item img { width: 100%; border-radius: 2px; margin-bottom: 8px; }
-        .flower-name { font-size: 12px; font-weight: 600; display: block; }
-        .flower-price { font-size: 11px; color: var(--gold); }
-
         /* 📮 致謝墨染區 (正風體) */
         .calligraphy-area { padding: 100px 10px 120px; width: 100%; display: flex; justify-content: center; position: relative; z-index: 2; }
         .ink-wrap { display: flex; flex-direction: row-reverse; justify-content: center; max-width: 100%; min-height: 520px; overflow: hidden; }
         .ink-line { 
             writing-mode: vertical-rl; font-family: 'ZF-Font', serif; 
-            font-size: clamp(22px, 6.5vw, 27px); letter-spacing: 12px; 
+            font-size: clamp(21px, 6vw, 26px); letter-spacing: 12px; 
             line-height: 2.8; opacity: 0; filter: blur(15px); white-space: nowrap;
         }
         .ink-anim { animation: inkFadeIn 3s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
         @keyframes inkFadeIn { 0% { opacity: 0; filter: blur(15px); transform: translateY(-15px); } 100% { opacity: 1; filter: blur(0); transform: translateY(0); } }
 
-        /* 懸浮導航 (防止壓縮) */
+        /* 懸浮導航 */
         .float-nav { position: fixed; bottom: 35px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
         .float-nav img { width: 56px; height: auto; object-fit: contain; filter: drop-shadow(0 6px 15px rgba(0,0,0,0.15)); }
 
@@ -104,7 +97,7 @@
         #lightbox { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(249,247,242,0.98); display:none; justify-content:center; align-items:center; z-index:10000; }
         #lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; }
 
-        footer { padding: 80px 25px 120px; width: 100%; position: relative; z-index: 2; }
+        footer { padding: 80px 25px 120px; width: 100%; position: relative; z-index: 2; text-align: left; }
     </style>
 </head>
 <body>
@@ -126,8 +119,8 @@
             <img src="image/IMG_5803.jpg" class="img-inner" onclick="zoom(this.src)">
             <div style="text-align: center; margin-top: 50px;">
                 <p style="font-size: 18px; font-weight: 600; letter-spacing: 4px; margin-bottom: 25px; color: var(--ink);">愛，從未遠離</p>
-                <p style="font-size: 15px; color: var(--sub-ink); line-height: 2.7; letter-spacing: 1.8px; padding: 0 15px;">
-                    我們最敬愛的 <span style="font-weight: 700; color: var(--ink); font-size: 18px;">簡翊卉 夫人</span><br>
+                <p style="font-size: 15px; color: var(--sub-ink); line-height: 2.7; letter-spacing: 2px; padding: 0 10px;">
+                    我們最敬愛的 <span style="font-weight: 700; color: var(--ink); font-size: 17px;">簡翊卉 夫人</span><br>
                     於 <span style="color: var(--ink); font-weight: 600;">114 年 12 月 15 日</span>，<br>
                     在家人的陪伴與守護下，<br>
                     安詳離世，優雅地轉身，<br>
@@ -140,19 +133,18 @@
             </div>
         </section>
 
-
         <section class="reveal">
             <span class="section-title">追思奠禮 ‧ 儀程詳情</span>
-            <div class="date-hero">2026.01.06</div>
+            <div class="date-hero">01.06</div>
             <p style="text-align:center; font-size:15px; letter-spacing:4px; color:var(--sub-ink);">二零二六年 ‧ 正月 ‧ 星期二</p>
             <div style="margin-top:40px; text-align: center;">
                 <div style="margin-bottom:30px;">
-                    <span style="font-size:20px; color:var(--gold); font-weight:700; letter-spacing:2px;">奠禮會場</span>
-                    <div style="font-size: 23px; font-weight: 600; margin-top:5px;">新北市立殯儀館 [ 崇仁廳 ]</div>
+                    <span style="font-size:11px; color:var(--gold); font-weight:700; letter-spacing:2px;">奠禮會場</span>
+                    <div style="font-size: 22px; font-weight: 600; margin-top:5px;">新北市立殯儀館 [ 崇仁廳 ]</div>
                 </div>
                 <div>
-                    <span style="font-size: 20px; color:var(--gold); font-weight:700; letter-spacing:2px;">牌位靈堂</span>
-                    <div style="font-size: 23px; font-weight: 600; margin-top:5px;">新北市立殯儀館 [ No.168 ]</div>
+                    <span style="font-size:11px; color:var(--gold); font-weight:700; letter-spacing:2px;">牌位靈堂</span>
+                    <div style="font-size: 22px; font-weight: 600; margin-top:5px;">新北市立殯儀館 [ No.168 ]</div>
                 </div>
             </div>
             <div class="time-grid">
@@ -164,7 +156,7 @@
 
         <section class="reveal">
             <span class="section-title">電子訃聞 ‧ 詳情參閱</span>
-            <img src="image/IMG_6120.jpeg" class="img-inner" style="max-width: 65%;" onclick="zoom(this.src)">
+            <img src="image/IMG_6120.jpeg" class="img-inner" style="max-width: 60%;" onclick="zoom(this.src)">
             <p style="text-align:center; font-size:12px; color:var(--gold); margin-top:20px; letter-spacing:2px;">( 點擊圖片可放大觀看全文 )</p>
         </section>
 
@@ -172,12 +164,12 @@
             <span class="section-title">會場位置與交通</span>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px;">
                 <img src="image/祥安資訊-板殯.png" style="width:100%;" onclick="zoom(this.src)">
-                <img src="image/IMG_9337.PNG" style="width:100%;" onclick="zoom(this.src)">
+                <img src="image/IMG_9337.jpeg" style="width:100%;" onclick="zoom(this.src)">
             </div>
             <p style="font-size: 14px; color: var(--sub-ink); line-height: 2.2;">
-                新北市板橋區中正路 560 號。捷運「新埔站」1號出口轉乘公車橘5至殯儀館站。自行開車親友可利用館內停車場。
+                新北市板橋區中正路 560 號。捷運「新埔站」1 號出口轉乘公車橘 5。
             </p>
-            <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-action" style="border-color:#eee; color:#777;">📍 開啟 Google 地圖導航</a>
+            <a href="https://maps.google.com/maps?q=新北市立殯儀館" target="_blank" class="btn-action" style="border-color:#eee; color:#777;">📍 開啟 Google 地圖導航</a>
         </section>
 
         <section class="reveal" style="text-align: center;">
@@ -192,32 +184,22 @@
                     <div style="font-size: 11px; color: #00c300;">SERVICE</div>
                 </div>
             </div>
-            <div id="flowerG" class="flower-grid">
-                <div class="flower-item"><img src="image/花籃A.JPG" onclick="zoom(this.src)"><span class="flower-name">精緻花籃 A 款</span><span class="flower-price">$2,500 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃B.JPG" onclick="zoom(this.src)"><span class="flower-name">高雅花籃 B 款</span><span class="flower-price">$3,000 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃C.JPG" onclick="zoom(this.src)"><span class="flower-name">典藏花籃 C 款</span><span class="flower-price">$3,500 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃D.JPG" onclick="zoom(this.src)"><span class="flower-name">尊爵花籃 D 款</span><span class="flower-price">$4,500 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃E.JPG" onclick="zoom(this.src)"><span class="flower-name">尊爵花籃 E 款</span><span class="flower-price">$5,000 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃F.JPG" onclick="zoom(this.src)"><span class="flower-name">尊爵花籃 F 款</span><span class="flower-price">$5,500 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃G.JPG" onclick="zoom(this.src)"><span class="flower-name">尊爵花籃 G 款</span><span class="flower-price">$6,000 / 對</span></div>
-                <div class="flower-item"><img src="image/花籃H.JPG" onclick="zoom(this.src)"><span class="flower-name">尊爵花籃 H 款</span><span class="flower-price">$6,500 / 對</span></div>
+            <div id="flowerG" style="display:none; grid-template-columns:1fr 1fr; gap:15px; margin-top:35px;">
+                <div style="text-align:center;"><img src="image/花籃A款.JPG" style="width:100%;" onclick="zoom(this.src)"><span style="font-size:12px;">花籃 A 款</span></div>
+                <div style="text-align:center;"><img src="image/花籃B款.JPG" style="width:100%;" onclick="zoom(this.src)"><span style="font-size:12px;">花籃 B 款</span></div>
             </div>
         </section>
 
         <div class="calligraphy-area" id="thanksSec">
             <div class="ink-wrap">
-        <div class="calligraphy-area" id="thanksSec">
-            <div class="ink-wrap">
                 <div class="ink-line" style="animation-delay: 0.5s;">致 每一位親愛的您，</div>
-                <div class="ink-line" style="animation-delay: 2.2s;">謝謝您 這陣子關懷與陪伴。</div>
-                <div class="ink-line" style="animation-delay: 3.9s;">一句句安慰，</div>
-                <div class="ink-line" style="animation-delay: 5.6s;">都像是一束溫暖的光，</div>
-                <div class="ink-line" style="animation-delay: 7.3s;">照亮了這份深深的思念。</div>
-                <div class="ink-line" style="animation-delay: 9s;">這份厚情，我們珍藏於心。</div>
-                <div class="ink-line" style="animation-delay: 11s; margin-right: 25px; margin-top: 60px;">家屬 <b style="border-bottom: 2.5px solid var(--gold); padding-bottom: 4px;">全體家眷</b> 叩謝</div>
+                <div class="ink-line" style="animation-delay: 2.5s;">謝謝您遠道而來的陪伴。</div>
+                <div class="ink-line" style="animation-delay: 4.5s;">您們的關懷與安慰，</div>
+                <div class="ink-line" style="animation-delay: 6.5s;">都像是一束溫暖的光，</div>
+                <div class="ink-line" style="animation-delay: 8.5s;">照亮了這份思念。</div>
+                <div class="ink-line" style="animation-delay: 10.5s;">這份厚情，珍藏於心。</div>
+                <div class="ink-line" style="animation-delay: 12.5s; margin-right: 25px; margin-top: 60px;">家屬 <b style="border-bottom: 2.5px solid var(--gold); padding-bottom: 4px;">全體家眷</b> 叩謝</div>
             </div>
-        </div>
-
         </div>
 
         <footer>
@@ -226,7 +208,7 @@
             </div>
             <div class="brand-text" style="font-size: 24px; font-weight: 700; letter-spacing: 8px;">祥安生命有限公司</div>
             <div class="brand-contact" style="font-size: 15px; color: var(--gold); font-weight: 600; margin-top: 10px;">
-                禮儀服務 ‧ 陳柏元 <a href="tel:0938179858" style="color:var(--gold); text-decoration:none;">0938-179-858</a>
+                服務專員 ‧ 陳柏元 <a href="tel:0938179858" style="color:var(--gold); text-decoration:none;">0938-179-858</a>
             </div>
             <p style="font-size: 10px; color: #bbb; margin-top: 80px; letter-spacing: 5px;">© 2025 JIAN YIHUI MEMORIAL</p>
         </footer>
@@ -252,7 +234,7 @@
     }), {threshold: 0.05});
     document.querySelectorAll('section, .calligraphy-area').forEach(s => obs.observe(s));
 
-    // 背景音樂啟動 (自動偵測使用者互動)
+    // 背景音樂
     const bgm = document.getElementById('bgm');
     const startM = () => { if(bgm.paused){ bgm.volume=0.3; bgm.play().catch(()=>{}); } };
     ['click','touchstart','scroll'].forEach(e => document.addEventListener(e, startM, {once:true}));
