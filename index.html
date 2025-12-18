@@ -39,7 +39,7 @@
         section { margin-bottom: 75px; opacity: 0; transform: translateY(30px); transition: 1.8s cubic-bezier(0.2, 1, 0.3, 1); }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* 頁首高度與比例 */
+        /* 頁首 */
         header { text-align: center; padding: 100px 20px 60px; }
         .logo { width: 48px; margin-bottom: 25px; filter: sepia(0.2); }
         .main-name { 
@@ -53,14 +53,14 @@
         }
         .sub-date { color: #999; font-size: 17px; font-weight: 400; letter-spacing: 6px; text-indent: 6px; }
 
-        /* 分享 */
+        /* 分享按鈕 */
         .share-flex { display: flex; justify-content: center; gap: 32px; margin: 35px 0; }
         .share-btn { background: none; border: none; cursor: pointer; text-align: center; }
         .share-btn img { width: 44px; height: 44px; margin-bottom: 8px; }
-        .share-btn span { display: block; font-size: 12px; color: #aaa; font-weight: 600; }
+        .share-btn span { display: block; font-size: 12px; color: #aaa; }
 
-        /* 詩文區：最優化置中不換行 */
-        .memorial-text-box { width: 100%; padding: 40px 0; display: flex; justify-content: center; align-items: center; }
+        /* 詩文區：置中不換行 */
+        .memorial-text-box { width: 100%; padding: 40px 0; display: flex; justify-content: center; }
         .memorial-text { 
             display: inline-block;
             font-size: clamp(14px, 3.8vw, 18.5px); 
@@ -81,6 +81,7 @@
             box-shadow: 0 15px 50px rgba(61,43,31,0.05); 
             border: 1px solid rgba(166,124,82,0.1); 
             width: 100%;
+            margin-bottom: 20px;
         }
         .card-label { 
             display: inline-block; padding: 6px 20px; border: 1.2px solid var(--accent-gold); 
@@ -88,7 +89,7 @@
             letter-spacing: 3px; margin-bottom: 35px; text-indent: 3px;
         }
 
-        /* 日期分層 */
+        /* 日期設計 */
         .date-section { text-align: center; margin-bottom: 35px; }
         .date-l1 { font-size: 19px; font-weight: 500; letter-spacing: 8px; color: var(--accent-gold); margin-bottom: 10px; text-indent: 8px; }
         .date-l2 { font-size: 23px; font-weight: 700; letter-spacing: 4px; color: var(--primary-brown); margin-bottom: 10px; text-indent: 4px; }
@@ -98,19 +99,25 @@
         .time-row { display: flex; justify-content: space-around; border-top: 1px solid #fcfaf8; border-bottom: 1px solid #fcfaf8; padding: 25px 0; margin: 30px 0; }
         .time-val { font-size: 32px; color: var(--primary-brown); font-weight: 900; }
 
+        /* 交通資訊詳解 */
+        .traffic-box { text-align: left; padding: 25px; background: #faf8f6; border-radius: 20px; margin-top: 25px; }
+        .traffic-item { margin-bottom: 20px; }
+        .traffic-title { font-weight: 700; color: var(--primary-brown); font-size: 15px; margin-bottom: 6px; display: block; }
+        .traffic-content { font-size: 14px; color: #777; line-height: 1.8; display: block; }
+
         /* 圖片 */
         .img-container { width: 100%; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.08); margin-bottom: 35px; }
         .img-fluid { width: 100%; height: auto; display: block; }
 
         /* 按鈕 */
-        .btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px; border-radius: 50px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 18px; border: none; }
+        .btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 18px; border-radius: 50px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 18px; border: none; transition: 0.3s; }
         .btn-gold { background: #5a717e; color: #fff; }
         .btn-line { background: #00c300; color: #fff; }
         .btn-outline { background: none; border: 1.2px solid var(--accent-gold); color: var(--accent-gold); }
 
-        /* 懸浮按鈕：完全無白邊/無背景 */
+        /* 懸浮按鈕：純圖無白邊 */
         .fixed-nav { position: fixed; bottom: 35px; right: 18px; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; z-index: 9999; }
-        .nav-item { background: transparent; border: none; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
+        .nav-item { background: transparent; border: none; padding: 0; outline: none; }
         .btn-phone-float { width: 92px; }
         .btn-line-float { width: 64px; }
         .nav-item img { width: 100%; height: auto; display: block; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2)); }
@@ -134,7 +141,7 @@
 
 <header class="container">
     <img src="image/logo.png" class="logo">
-    <div style="letter-spacing: 10px; font-weight: 500; color: var(--accent-gold); font-size: 15px; text-indent: 10px;">摯 愛 追 思</div>
+    <div style="letter-spacing: 10px; font-weight: 500; color: var(--accent-gold); font-size: 13px; text-indent: 10px;">摯 愛 追 思</div>
     <h1 class="main-name">簡翊卉 夫人</h1>
     <div class="sub-date">1954 — 2025</div>
     
@@ -183,15 +190,30 @@
                 <div style="width: 1px; background: #eee;"></div>
                 <div><span style="color:#aaa; font-size:12px; display:block; margin-bottom:8px;">公奠禮</span><span class="time-val">08:40</span></div>
             </div>
-            <div style="margin-bottom: 30px;">
+            <div style="margin-bottom: 25px;">
                 <span style="font-size: 23px; font-weight: 900; color: var(--accent-gold); display: block; letter-spacing: 1px; margin-bottom: 5px;">新北市立殯儀館 [崇仁廳]</span>
                 <span style="color: #999; font-size: 14px;">新北市板橋區中正路 560 號</span>
             </div>
-            <div style="background: #fcfaf8; border-radius: 20px; padding: 22px; border: 1px dashed rgba(166,124,82,0.3);">
-                <span style="font-size: 12px; color: var(--accent-gold); display: block; font-weight: 700; margin-bottom: 8px;">靈堂 / 牌位區位置</span>
-                <span style="font-size: 17px; color: var(--primary-brown); font-weight: 700;">新北市立殯儀館 [思源廳] 3號牌位區</span>
-            </div>
             <button class="btn btn-gold" onclick="addToCalendar()">📅 加入手機行事曆提醒</button>
+        </div>
+
+        <div class="info-card" style="padding: 40px 25px;">
+            <span class="card-label">交通資訊</span>
+            <div class="traffic-box">
+                <div class="traffic-item">
+                    <span class="traffic-title">📍 自行開車：</span>
+                    <span class="traffic-content">國道三號下板橋交流道，往板橋市區方向，接中正路直行即可抵達。館內設有收費停車場。</span>
+                </div>
+                <div class="traffic-item">
+                    <span class="traffic-title">🚇 捷運轉乘：</span>
+                    <span class="traffic-content">捷運板南線【板橋站】或【新埔站】下車，轉乘計程車（約10分鐘）或 307、310、810 號公車於「板橋國中」站下車。</span>
+                </div>
+                <div class="traffic-item">
+                    <span class="traffic-title">🚏 公車路線：</span>
+                    <span class="traffic-content">搭乘 307、310、786、810、857、橘5 於「板橋國中（435藝文特區）」站下車，步行約 3 分鐘。</span>
+                </div>
+            </div>
+            <a href="https://maps.app.goo.gl/vJmXpA8iXyvUPrfM6" target="_blank" class="btn btn-outline" style="margin-top: 25px;">🧭 開啟 Google 地圖導航</a>
         </div>
     </section>
 
