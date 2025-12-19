@@ -51,6 +51,11 @@
             z-index: 0; pointer-events: none; white-space: nowrap; text-transform: uppercase;
         }
 
+        /* 頂部按鈕組 */
+        .top-action-bar { display: flex; justify-content: center; gap: 12px; margin-top: 15px; }
+        .top-btn { display: flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid rgba(180, 151, 122, 0.3); background: #fff; color: var(--sub-ink); }
+        .top-btn img { width: 16px; height: 16px; }
+
         /* 區塊動畫 */
         section { padding: 65px 22px; width: 100%; position: relative; z-index: 1; opacity: 0; transform: translateY(20px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         section.visible { opacity: 1; transform: translateY(0); }
@@ -70,20 +75,17 @@
         .time-item b { font-size: 40px; font-weight: 600; color: var(--gold); }
         .time-item span { font-size: 11px; display: block; color: var(--sub-ink); letter-spacing: 2px; }
 
-        /* 注意事項 */
         .notice-card { background: rgba(180, 151, 122, 0.05); border: 1px solid rgba(180, 151, 122, 0.15); border-radius: 8px; padding: 25px 20px; margin-top: 30px; }
         .notice-item { font-size: 13px; color: var(--sub-ink); margin-bottom: 12px; display: flex; align-items: flex-start; line-height: 1.6; text-align: justify; }
         .notice-item:last-child { margin-bottom: 0; }
         .notice-item::before { content: "‧"; color: var(--gold); font-weight: 900; margin-right: 8px; }
 
-        /* 花禮列表 */
         .flower-grid { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px; padding: 0 5px; }
         .flower-item { text-align: center; background: #fff; padding: 10px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         .flower-item img { width: 100%; border-radius: 2px; margin-bottom: 8px; }
         .flower-name { font-size: 12px; font-weight: 600; }
         .flower-price { font-size: 11px; color: var(--gold); font-weight: 700; display: block; margin-top: 3px; }
 
-        /* 📮 墨染致謝區 */
         .calligraphy-area { padding: 80px 10px 120px; width: 100%; display: flex; justify-content: center; position: relative; z-index: 2; overflow: hidden; }
         .ink-wrap { display: flex; flex-direction: row-reverse; justify-content: center; align-items: flex-start; width: 95%; max-width: 420px; height: 520px; margin: 0 auto; }
         .ink-line { writing-mode: vertical-rl; font-family: 'ZF-Font', serif; font-size: clamp(19px, 5.2vw, 23px); letter-spacing: clamp(5px, 1.5vw, 8px); line-height: 1.9; opacity: 0; filter: blur(12px); white-space: nowrap; margin: 0 4px; }
@@ -91,12 +93,10 @@
         .ink-anim { animation: inkFadeIn 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
         @keyframes inkFadeIn { 0% { opacity: 0; filter: blur(12px); transform: translateY(-10px); } 100% { opacity: 1; filter: blur(0); transform: translateY(0); } }
 
-        /* 底部按鈕 */
         .contact-box { background: rgba(180, 151, 122, 0.06); padding: 30px 20px; border-radius: 12px; margin: 0 22px 30px; border: 1px solid rgba(180, 151, 122, 0.1); }
         .contact-btns { display: flex; gap: 12px; margin-top: 15px; }
         .btn-call { flex: 1; background: var(--gold); color: #fff; text-decoration: none; padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 600; text-align: center; }
         .btn-line { flex: 1; background: #06C755; color: #fff; text-decoration: none; padding: 14px; border-radius: 8px; font-size: 14px; font-weight: 600; text-align: center; }
-
         .btn-action { display: block; width: 100%; padding: 18px; border: 1px solid var(--gold); color: var(--gold); text-align: center; text-decoration: none; font-size: 13px; letter-spacing: 4px; font-weight: 700; margin-top: 30px; }
         
         .float-nav { position: fixed; bottom: 35px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
@@ -120,10 +120,11 @@
             <a href="javascript:void(0)" class="top-btn" onclick="copyText()">
                 <img src="https://img.icons8.com/material-outlined/24/777777/copy.png"> 複製資訊
             </a>
-            <a href="https://line.me/R/msg/text/?【追思】簡翊卉夫人 奠禮資訊%0ahttps://your-link.here" class="top-btn">
+            <a href="https://line.me/R/msg/text/?【追思】簡翊卉夫人 奠禮資訊%0ahttps://24hour.台灣/Jian-Yihui" class="top-btn">
                 <img src="https://img.icons8.com/material-rounded/24/06C755/line-me.png"> 分享親友
             </a>
         </div>
+    </div>
 
     <header>
         <div style="text-align:center; font-size: 13px; letter-spacing: 8px; color: var(--gold); font-weight: 600;">1954 — 2025</div>
@@ -141,14 +142,11 @@
                     在家人的陪伴與守護下，<br>
                     安詳離世，優雅地轉身，<br>
                     留給我們無盡的思念與深深的祝福。<br><br>
-                    
                     謹擇於民國115年01月06日（星期二）<br>
                     新北市立殯儀館 崇仁廳<br>
                     舉辦追思告別奠禮<br><br>
-
                     敬邀您<br>
-                    一同參與夫人的畢業典禮<br>
-                    
+                    一同參與夫人的畢業典禮
                 </p>
             </div>
         </section>
@@ -162,7 +160,7 @@
             <div style="margin-top:45px; text-align: center;">
                 <div style="margin-bottom:25px; padding: 18px; background: rgba(180, 151, 122, 0.04); border: 1px solid rgba(180, 151, 122, 0.15); border-radius: 6px;">
                     <span style="font-size:11px; color:var(--gold); font-weight:700; letter-spacing: 3px; display: block; margin-bottom: 5px;">安靈地點 (牌位區)</span>
-                    <div style="font-size: 18px; font-weight: 600; color: var(--ink);">板橋殯儀館牌位區 [ No.168  ]</div>
+                    <div style="font-size: 18px; font-weight: 600; color: var(--ink);">板橋殯儀館牌位區 [ No.168 ]</div>
                     <div style="font-size: 12px; color: var(--sub-ink); margin-top: 4px;">( 奠禮前弔唁請至此處 )</div>
                 </div>
 
@@ -177,7 +175,6 @@
                 <div class="time-item"><span>公奠禮</span><b>08:40</b></div>
             </div>
 
-
             <div class="notice-card">
                 <div class="notice-item">請著整齊、樸素以表尊敬與追思之意。</div>
                 <div class="notice-item">奠禮會場儀式期間，請將手機調至靜音或關機。</div>
@@ -188,7 +185,7 @@
             <a href="#" class="btn-action" onclick="addCal()">加入手機行事曆提醒</a>
         </section>
 
-         <section class="reveal">
+        <section class="reveal">
             <span class="section-title">電子訃聞 ‧ 詳情參閱</span>
             <img src="image/IMG_6120.jpeg" class="img-inner" style="max-width: 70%;" onclick="zoom(this.src)">
             <p style="text-align:center; font-size:12px; color:var(--gold); margin-top:20px;">( 點擊圖片放大全文 )</p>
@@ -200,7 +197,7 @@
                 <img src="image/祥安資訊-板殯.png" style="width:100%;" onclick="zoom(this.src)">
                 <img src="image/IMG_9337.PNG" style="width:100%;" onclick="zoom(this.src)">
             </div>
-            <a href="https://maps.app.goo.gl/NnJ8MBgGRXQiBQx89?g_st=ic" target="_blank" class="btn-action" style="border-color:#eee; color:#888;">📍 開啟 Google 地圖導航</a>
+            <a href="https://maps.app.goo.gl/9ZpL9tXJ5M6Yp9Y6A" target="_blank" class="btn-action" style="border-color:#eee; color:#888;">📍 開啟 Google 地圖導航</a>
         </section>
 
         <section class="reveal" style="text-align: center;">
@@ -290,20 +287,26 @@
 
     function zoom(src) { document.getElementById('lbi').src = src; document.getElementById('lightbox').style.display = 'flex'; }
     function toggleF() { const g = document.getElementById('flowerG'); g.style.display = g.style.display === 'grid' ? 'none' : 'grid'; }
-    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立// 一鍵複製功能
+    
     function copyText() {
         const info = "【追思奠禮 ‧ 簡翊卉 夫人】\n\n安靈地點(牌位區)：板橋殯儀館 168號\n奠禮日期：2026年01月06日(二)\n奠禮會場：新北市立殯儀館 崇仁廳\n家奠禮：08:00\n公奠禮：08:40";
-        navigator.clipboard.writeText(info).then(() => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(info).then(() => {
+                alert("奠禮資訊已複製到剪貼簿");
+            });
+        } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = info;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
             alert("奠禮資訊已複製到剪貼簿");
-        });
+        }
     }
 
-    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20250106T080000/20250106T110000&location=${encodeURIComponent('新北市立殯儀館')}`); }
+    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立殯儀館')}`); }
 </script>
 
 </body>
 </html>
-
-</body>
-</html>
-
