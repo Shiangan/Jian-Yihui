@@ -114,7 +114,16 @@
 <div class="app-wrapper">
     <div class="bg-watermark">MEMORY</div>
 
-    <div class="header-top"><img src="image/logo.png" class="top-logo"></div>
+    <div class="header-top">
+        <img src="image/logo.png" class="top-logo">
+        <div class="top-action-bar">
+            <a href="javascript:void(0)" class="top-btn" onclick="copyText()">
+                <img src="https://img.icons8.com/material-outlined/24/777777/copy.png"> 複製資訊
+            </a>
+            <a href="https://line.me/R/msg/text/?【追思】簡翊卉夫人 奠禮資訊%0ahttps://your-link.here" class="top-btn">
+                <img src="https://img.icons8.com/material-rounded/24/06C755/line-me.png"> 分享親友
+            </a>
+        </div>
 
     <header>
         <div style="text-align:center; font-size: 13px; letter-spacing: 8px; color: var(--gold); font-weight: 600;">1954 — 2025</div>
@@ -281,8 +290,19 @@
 
     function zoom(src) { document.getElementById('lbi').src = src; document.getElementById('lightbox').style.display = 'flex'; }
     function toggleF() { const g = document.getElementById('flowerG'); g.style.display = g.style.display === 'grid' ? 'none' : 'grid'; }
-    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立殯儀館')}`); }
+    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20260106T080000/20260106T110000&location=${encodeURIComponent('新北市立// 一鍵複製功能
+    function copyText() {
+        const info = "【追思奠禮 ‧ 簡翊卉 夫人】\n\n安靈地點(牌位區)：板橋殯儀館 168號\n奠禮日期：2026年01月06日(二)\n奠禮會場：新北市立殯儀館 崇仁廳\n家奠禮：08:00\n公奠禮：08:40";
+        navigator.clipboard.writeText(info).then(() => {
+            alert("奠禮資訊已複製到剪貼簿");
+        });
+    }
+
+    function addCal() { window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('【追思】簡翊卉夫人 奠禮')}&dates=20250106T080000/20250106T110000&location=${encodeURIComponent('新北市立殯儀館')}`); }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
